@@ -1,8 +1,13 @@
-
+import Atharv from './atharv'
 
 function App() {
   return (
+    <>
     <h1>hello react</h1>
+    <Atharv/>
+    </>
+    
+    
   );
 }
 
