@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Card from './components/Card'
 function App() {
+  let myObj = {
+    username:"Atharv",
+    age:21
+  }
+  let newArr = [1,2,3];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // passing object ,array and value by using props
+    <>
+    <div className=' flex flex-col items-center justify-center'>
+        <h1 className='bg-green-400 text-black p-4 rounded-xl max-w-xs text-center '>Tailwind test</h1>
+       < Card username='Atharv' btnText= "click me" />
+       <Card someObj={myObj} newArray={newArr}/>
     </div>
+    
+     
+    
+  
+
+
+    
+    
+    </>
   );
 }
 
