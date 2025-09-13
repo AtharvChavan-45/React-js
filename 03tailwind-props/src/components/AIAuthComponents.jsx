@@ -1,5 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Eye, EyeOff, Mail, Lock, User, Phone, ArrowRight, CheckCircle, Star, Sparkles, Bot, Zap, Shield, Mic, MicOff,} from "lucide-react";
+import {
+  Eye,
+  EyeOff,
+  Mail,
+  Lock,
+  User,
+  Phone,
+  ArrowRight,
+  CheckCircle,
+  Bot,
+  Zap,
+  Mic,
+  MicOff,
+} from "lucide-react";
 
 const AIAuthComponents = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -105,9 +118,13 @@ const AIAuthComponents = () => {
               )}
             </button>
 
-            <a href="#" className="text-sm text-cyan-400 hover:text-cyan-300">
-              Forgot password?
-            </a>
+            <button
+               type="button"
+               onClick={() => alert("Forgot password clicked")}
+               className="text-sm text-cyan-400 hover:text-cyan-300"
+            >
+             Forgot password?
+             </button>
           </div>
 
           <button
@@ -116,6 +133,35 @@ const AIAuthComponents = () => {
           >
             Sign In <ArrowRight className="h-5 w-5" />
           </button>
+
+          {/* OAuth buttons */}
+          <div className="mt-6 space-y-3">
+            <button
+              type="button"
+              onClick={() => alert("Google Sign In triggered")}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-white text-gray-900 font-semibold border hover:bg-gray-100 transition"
+            >
+              <img
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                alt="Google"
+                className="h-5 w-5"
+              />
+              Continue with Google
+            </button>
+
+            <button
+              type="button"
+              onClick={() => alert("Apple Sign In triggered")}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-black text-white font-semibold border hover:bg-gray-800 transition"
+            >
+              <img
+                src="https://www.svgrepo.com/show/303128/apple-logo.svg"
+                alt="Apple"
+                className="h-5 w-5"
+              />
+              Continue with Apple
+            </button>
+          </div>
 
           <p className="mt-4 text-center text-sm text-gray-400">
             New here?{" "}
@@ -204,6 +250,35 @@ const AIAuthComponents = () => {
           >
             Sign Up <CheckCircle className="h-5 w-5" />
           </button>
+
+          {/* OAuth buttons */}
+          <div className="mt-6 space-y-3">
+            <button
+              type="button"
+              onClick={() => alert("Google Sign Up triggered")}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-white text-gray-900 font-semibold border hover:bg-gray-100 transition"
+            >
+              <img
+                src="https://www.svgrepo.com/show/475656/google-color.svg"
+                alt="Google"
+                className="h-5 w-5"
+              />
+              Continue with Google
+            </button>
+
+            <button
+              type="button"
+              onClick={() => alert("Apple Sign Up triggered")}
+              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-black text-white font-semibold border hover:bg-gray-800 transition"
+            >
+              <img
+                src="https://www.svgrepo.com/show/303128/apple-logo.svg"
+                alt="Apple"
+                className="h-5 w-5"
+              />
+              Continue with Apple
+            </button>
+          </div>
 
           <p className="mt-4 text-center text-sm text-gray-400">
             Already have an account?{" "}

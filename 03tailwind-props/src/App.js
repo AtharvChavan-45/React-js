@@ -1,6 +1,8 @@
 
 import './App.css';
 import Card from './components/Card'
+import AIAuthComponents from './components/AIAuthComponents';
+import LoginPage from './components/LoginPage'
 function App() {
   let myObj = {
     username:"Atharv",
@@ -14,6 +16,8 @@ function App() {
         <h1 className='bg-green-400 text-black p-4 rounded-xl max-w-xs text-center '>Tailwind test</h1>
        < Card username='Atharv' btnText= "click me" />
        <Card someObj={myObj} newArray={newArr}/>
+       < AIAuthComponents/>
+       < LoginPage />
     </div>
     
      
