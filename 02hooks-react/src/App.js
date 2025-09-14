@@ -9,9 +9,16 @@ function App() {
   //let counter=15;
   const addValue = () =>{
    // counter=counter+1
-   AtharvCounter(counter+1)
+   //before counter = 15 after prevCounter= 15+3 = 18
+   // we cannot use counter+1 repeated for adding 2 or 3 in counter we have to 
+   // pass new call back function in our state like prevCounter
+   AtharvCounter(prevCounter => prevCounter+1)
+   AtharvCounter(prevCounter => prevCounter+1)
+   AtharvCounter(prevCounter => prevCounter+1)
   };
    const removeValue=()=>{
+    //it does not work like that
+    AtharvCounter(counter-1)
     AtharvCounter(counter-1)
    }
   return (
