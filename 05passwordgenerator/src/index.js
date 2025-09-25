@@ -1,14 +1,19 @@
+//method 1 : require('dotenv').config({path: './env'})
+//method 2:
+import dotenv from "dotenv"
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import mongoose from "mongoose";
-import { DB_NAME } from './constants';
 
+import connectDB from './db/index';
 //import express from "express"
 //const app = express()
-
+dotenv.config({
+  path:'./env'
+})
+connectDB()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
