@@ -13,6 +13,7 @@ function App() {
   const ratesObject = currencyInfo[from] || {};
   const options =Object.keys(ratesObject)
   const swap = () => {
+    
     setFrom(to)
     setTo(from)
     setConvertedAmount(amount)
@@ -21,7 +22,7 @@ function App() {
 
   const convert = () => {
     // Ensure the rates object exists and has the 'to' currency before conversion
-    const rate = ratesObject[to];
+    const rate = currencyInfo[to];
     if (rate !== undefined) {
       setConvertedAmount(amount * rate);
     } else {
