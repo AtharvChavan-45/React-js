@@ -10,8 +10,8 @@ function App() {
   const [convertedAmount,setConvertedAmount]=useState(0)
 
   const currencyInfo =useCurrencyInfo(from)
-  const ratesObject = currencyInfo[from] || {};
-  const options =Object.keys(ratesObject)
+
+  const options =Object.keys(currencyInfo)
   const swap = () => {
     
     setFrom(to)
@@ -51,7 +51,7 @@ function App() {
                                 label="From"
                                 amount={amount}
                                 currencyOptions={options}
-                                onCurrencyChange={(currency)=>setFrom(currency)}
+                                onCurrencyChange={(currency)=>setAmount(amount)}
                                 selectCurrency={from}
                                 onAmountChange={(amount)=>setAmount(amount)}
                                 
@@ -72,7 +72,7 @@ function App() {
                                 amount={convertedAmount}
                                 currencyOptions={options}
                                 onCurrencyChange={(currency)=> setTo(currency)}
-                                selectCurrency={to}
+                                selectCurrency={from}
                                 amountDisable
                                 
                             />
