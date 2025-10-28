@@ -19,7 +19,7 @@ It allows users to convert currency values in real-time using live exchange rate
 This simple React app allows users to dynamically change the background color with one click.  
 Built using React hooks and functional components.
 
-🔗 **Live Demo:** [Click Here](https://bgchanger-atharv-chavan.vercel.app)
+🔗 **Live Demo:** [Click Here](https://react-js-4s78.vercel.app/)
 
 More React projects will be added soon!  
 Feel free to explore the code and suggest improvements 😊
