@@ -1,5 +1,5 @@
 
-import { useState,useCallback,useEffect } from 'react';
+import { useState,useCallback} from 'react';
 
 import {InputBox} from './components';
 import useCurrencyInfo from './hooks/useCurrencyinfo';
@@ -20,27 +20,24 @@ function App() {
     setAmount(convertedAmount)
   }
 
-   const convert = useCallback(() => {
-    // FIX 2: Check if amount is valid before converting. If not valid, set convertedAmount to 0 (which will display as empty string in InputBox).
-    if (amount === null || amount === undefined || amount === '' || isNaN(amount) || Number(amount) === 0) {
-      setConvertedAmount(0); // Set to 0 so the InputBox displays as empty
+    const convert = useCallback(() => {
+    // Ensure amount is a valid number before attempting conversion
+    if (amount === null || amount === undefined || amount === '' || isNaN(amount)) {
+      setConvertedAmount(0);
       return;
     }
 
     const rate = currencyInfo[to];
     if (rate !== undefined) {
-      const result = Number(amount) * rate; // Ensure amount is treated as a number here
-      setConvertedAmount(parseFloat(result.toFixed(4))); // Increased precision slightly
+      const result = Number(amount) * rate; 
+      setConvertedAmount(parseFloat(result.toFixed(4)));
     } else {
       console.error(`Rate for ${to} not found.`);
       setConvertedAmount(0);
     }
-  }, [amount, to, currencyInfo]);
+  }, [amount, to, currencyInfo]); // Dependencies for useCallback
 
-   // Use useEffect for auto-conversion
-  useEffect(() => {
-    convert();
-  }, [amount, from, to, convert]); // Now include 'convert' in the dependency array
+
 
   return (
         <div
@@ -66,7 +63,7 @@ function App() {
                                 onCurrencyChange={(currency)=>setFrom(currency)}// i guess problem is here 
                                 selectCurrency={from}
                                 // Accept value as string from input, allow empty string
-                                onAmountChange={(value) => setAmount(value === '' ? '' : Number(value))} 
+                                onAmountChange={(value) => setAmount(value === '' ? '' : value)} 
                                 
                             />
                         </div>
