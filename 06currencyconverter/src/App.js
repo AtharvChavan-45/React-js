@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState,useCallback,useEffect } from 'react';
 
 import {InputBox} from './components';
 import useCurrencyInfo from './hooks/useCurrencyinfo';
@@ -20,16 +20,28 @@ function App() {
     setAmount(convertedAmount)
   }
 
-  const convert = () => {
-    // Ensure the rates object exists and has the 'to' currency before conversion
+   const convert = useCallback(() => {
+    // FIX 2: Check if amount is valid before converting. If not valid, set convertedAmount to 0 (which will display as empty string in InputBox).
+    if (amount === null || amount === undefined || amount === '' || isNaN(amount) || Number(amount) === 0) {
+      setConvertedAmount(0); // Set to 0 so the InputBox displays as empty
+      return;
+    }
+
     const rate = currencyInfo[to];
     if (rate !== undefined) {
-      setConvertedAmount(amount * rate);
+      const result = Number(amount) * rate; // Ensure amount is treated as a number here
+      setConvertedAmount(parseFloat(result.toFixed(4))); // Increased precision slightly
     } else {
       console.error(`Rate for ${to} not found.`);
       setConvertedAmount(0);
     }
-  }
+  }, [amount, to, currencyInfo]);
+
+   // Use useEffect for auto-conversion
+  useEffect(() => {
+    convert();
+  }, [amount, from, to, convert]); // Now include 'convert' in the dependency array
+
   return (
         <div
             className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
@@ -51,9 +63,10 @@ function App() {
                                 label="From"
                                 amount={amount}
                                 currencyOptions={options}
-                                onCurrencyChange={(currency)=>setAmount(amount)}
+                                onCurrencyChange={(currency)=>setFrom(currency)}// i guess problem is here 
                                 selectCurrency={from}
-                                onAmountChange={(amount)=>setAmount(amount)}
+                                // Accept value as string from input, allow empty string
+                                onAmountChange={(value) => setAmount(value === '' ? '' : Number(value))} 
                                 
                             />
                         </div>
@@ -72,9 +85,9 @@ function App() {
                                 amount={convertedAmount}
                                 currencyOptions={options}
                                 onCurrencyChange={(currency)=> setTo(currency)}
-                                selectCurrency={from}
+                                selectCurrency={to}
                                 amountDisable
-                                
+                                currencyDisable={false} 
                             />
                         </div>
                         <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
