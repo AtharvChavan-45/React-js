@@ -64,7 +64,7 @@ function App() {
                                 selectCurrency={from}
                                 // Accept value as string from input, allow empty string
                                 onAmountChange={(value) => setAmount(value === '' ? '' : value)} 
-                                
+                                // imp
                             />
                         </div>
                         <div className="relative w-full h-0.5">
