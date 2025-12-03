@@ -26,7 +26,7 @@ function InputBox({
                     placeholder="Amount"
                     disabled={amountDisable}
                     value={amount === 0 ?'':amount}
-                    onChange={(e) => onAmountChange && onAmountChange(e.target.value) }
+                    onChange={(e) => onAmountChange && onAmountChange(e.target.value) }//33 min
                 />
             </div>
             <div className="w-1/2 flex flex-wrap justify-end text-right">

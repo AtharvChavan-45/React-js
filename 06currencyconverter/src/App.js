@@ -9,7 +9,7 @@ function App() {
   const [to,setTo] =useState("inr")
   const [convertedAmount,setConvertedAmount]=useState(0)
 
-  const currencyInfo =useCurrencyInfo(from)
+  const currencyInfo =useCurrencyInfo(from)// transfer usd to usecurrencyinnfo which is default
 
   const options =Object.keys(currencyInfo)
   const swap = () => {
