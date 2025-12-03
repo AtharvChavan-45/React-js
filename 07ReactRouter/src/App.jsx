@@ -1,4 +1,4 @@
-
+import React from 'react'
 import './App.css'
 
 function App() {
@@ -6,8 +6,8 @@ function App() {
 
   return (
     <>
-      <h1 className='bg-green-200 p-4'>React Router</h1>
-      
+    
+
 
     </>
   )
