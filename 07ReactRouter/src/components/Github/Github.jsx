@@ -5,8 +5,8 @@ function Github() {
     useEffect(()=>{
       fetch('https://api.github.com/users/AtharvChavan-45')
       .then(response=>response.json())
-      .then(data=>{console.log(data);
-        setdata(data)
+      .then(data=>{console.log(data);{/* Converts API response into JSON format */}
+        setdata(data); {/*Stores the returned GitHub user data inside data state */}
       })
     },[])
   return (
@@ -18,3 +18,6 @@ function Github() {
 }
 
 export default Github
+//useEffect runs the function only ones when component load
+//[] empty dependency means run only on page first load
+{/* */}
