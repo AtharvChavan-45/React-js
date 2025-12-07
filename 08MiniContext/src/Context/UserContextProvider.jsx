@@ -11,3 +11,15 @@ const UserContextProvider = ({children}) =>{
 }
 
 export default UserContextProvider;
+
+ // children means — whatever components are written inside this provider will be shown here
+ {/*
+   <UserContextProvider>
+   <App />   ← here App = children
+   </UserContextProvider>
+ 
+ - We wrap children inside UserContext.Provider
+ - So any child component can now read user or update it using setUser.
+ - No need to pass props manually!
+   */
+}

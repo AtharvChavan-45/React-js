@@ -3,9 +3,10 @@ import UserContext from '../Context/UserContext'
 function Login() {
     const [username,setUsername]=useState('')
     const [password, setpassword] = useState('')
-    
+     
+    // access data from context api
     const {setUser}=useContext(UserContext)
-    
+   
     const handleSubmit = (e) => {
         e.preventDefault()
         setUser({username,password})
