@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 
 import './App.css'
 import { ThemeProvider } from './contexts/theme'
@@ -42,9 +42,7 @@ function App() {
                 {/* Card */}
                 <Card />
             </div>
-            <div>
-              hello
-            </div>
+           
       </div>
 </div>
 </ThemeProvider>
