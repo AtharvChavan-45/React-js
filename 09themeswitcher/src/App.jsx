@@ -18,13 +18,16 @@ function App() {
 
  // actual change in theme
 
+ // useEffect runs after the component renders
+ // it runs again only when themeMode changes
+
  useEffect(() => {
    document.querySelector('html').classList.remove("light","dark")
    document.querySelector('html').classList.add(themeMode)
 
- 
+ // this select HTML tag Because Tailwind dark mode works by checking class on <html>
    
- }, [themeMode])
+ }, [themeMode]) //dependency
  
 
   return (

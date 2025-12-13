@@ -4,12 +4,13 @@ import useTheme from '../contexts/theme';
 export default function ThemeBtn() {
     
     const {themeMode, lightTheme, darkTheme} = useTheme()
+    // This function runs when the toggle / checkbox is clicked
     const onChangeBtn = (e) => {
-            const darkModeStatus =e.currentTarget.checked
-            if(darkModeStatus) {
+            const darkModeStatus =e.currentTarget.checked // Check if checkbox is ON or OFF
+            if(darkModeStatus) { // if true then darktheme
                 darkTheme()
             }
-            else{
+            else{ // if false then lighttheme
                 lightTheme()
             }
         }
