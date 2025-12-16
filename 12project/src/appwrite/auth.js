@@ -62,7 +62,7 @@ export class AuthService {
 }
     async logout(){
     try {
-        await this.account.deleteSessions();
+        return await this.account.deleteSessions();
     } catch (error) {
     throw error;
     }
@@ -72,4 +72,6 @@ export class AuthService {
 // Create a single instance of AuthService
 const authService = new AuthService();
 
+// only one AuthService instance is needed
+// can be used anywhere in your app
 export default authService
