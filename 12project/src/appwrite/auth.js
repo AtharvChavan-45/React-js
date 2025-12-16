@@ -1,15 +1,24 @@
 import conf from "../conf/conf";
 import { Client,Account,ID } from "appwrite";
 
+// Instead of writing Appwrite code again and again in components, we centralize everything in 
+// one class → AuthService.
+
 export class AuthService {
-    client = new Client();
+    client = new Client(); // connects your app to appwrite server
     account;
 
+    // Constructor runs automatically when AuthService is created
+
     constructor(){
+
+        // Connect frontend to Appwrite backend
+
         this.client
         .setEndpoint(conf.appwriteUrl)
         .setProject(conf.appwriteProjectId);
-        this.account = new Account(this.client);
+         // Initialize account service using client
+        this.account = new Account(this.client);// handles authentication related actions
     }
 
    async createAccount({email,password,name}){
@@ -20,8 +29,9 @@ export class AuthService {
             password:password,
             name:name
         });
-        if (userAccount) {
-            // call another method
+        if (userAccount) { // auto login after signup
+            // if account is created successfully automatically logs in the user
+            // return session data
             return this.login({email,password});
         } else {
             return userAccount;
@@ -50,16 +60,16 @@ export class AuthService {
         return null; // Return null if the call fails (user not logged in)
     }
 }
-async logout(){
-try {
-    await this.account.deleteSessions();
-} catch (error) {
+    async logout(){
+    try {
+        await this.account.deleteSessions();
+    } catch (error) {
     throw error;
-}
-}
-
+    }
 }
 
+}
+// Create a single instance of AuthService
 const authService = new AuthService();
 
 export default authService
