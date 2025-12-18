@@ -1,4 +1,4 @@
-## Define React
+<span style="color:blue">## Define React</span>
 
 React is a JavaScript library used to build fast, interactive user interfaces by creating reusable components and efficiently updating the UI using a virtual DOM.
 
@@ -10,9 +10,9 @@ React is a JavaScript library used to build fast, interactive user interfaces by
 ### What is virtual DOM ?
 
 **DOM** : document object Module
-        - Structure of your Webpage
-        - Updating the real dom is slow
-        - Even a small change can cause the page to re-render many elements.
+ - Structure of your Webpage
+ - Updating the real dom is slow
+ - Even a small change can cause the page to re-render many elements.
 
 **Virtual DOM** : 
 
