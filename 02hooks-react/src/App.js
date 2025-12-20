@@ -31,8 +31,8 @@ function App() {
      <button onClick={removeValue}>remove value</button>
 
       < FavoriteColor/> {/* passing another separate function in app */}
-      < MyCar/>
-      <MyCars/>
+      {/*< MyCar/>
+      <MyCars/>*/}
      </div>
     
      
@@ -68,7 +68,7 @@ function FavoriteColor() {
     </>
   );
 }
-
+/*
 // We could create multiple state Hooks to track individual values
 function MyCar() {
   const [brand, setBrand] = useState("Ford");
@@ -114,7 +114,7 @@ function MyCars() {
     </>
   )
 }
-
+*/
 
 export default App;
 
