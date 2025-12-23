@@ -90,3 +90,40 @@ return(
     <h2>How are you?</h2>
 )
 ```
+# Understand React boilerplate code
+
+```jsx
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+```
+### StrictMode :
+```jsx
+import { StrictMode } from 'react'
+```
+- StrictMode is a development-only helper components provided by react.
+- Helps you to find bugs in code
+- Checks Unsafe lifecycle methods, Deprecated APIs, Unexpected side effects, Incorrect usage of hooks.
+
+```jsx
+import { createRoot } from 'react-dom/client'
+
+createRoot(document.getElementById('root')).render(
+   <App />
+)
+```
+- Imports createRoot, the React 18 API used to create a root container that enables modern features like concurrent rendering.
+-  Finds the < div id="root"> in index.html, creates a React root on it, and tells React where to render the app.
+- This selects the root DOM element and initializes React’s rendering process by attaching the virtual DOM to the real DOM.
+```jsx
+<div id="root"></div>
+```
+- React uses this div as the mounting point.
+
